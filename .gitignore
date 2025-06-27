@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.swp
+*.egg-info/
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Data and results (optional)
+data/
+results/
+
+# Large files to avoid pushing
+*.tar.bz2
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
