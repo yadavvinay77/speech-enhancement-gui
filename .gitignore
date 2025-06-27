@@ -1,31 +1,21 @@
-# Byte-compiled / optimized / DLL files
+# Python cache and compiled files
 __pycache__/
 *.py[cod]
-*$py.class
+*.pyo
+*.pyd
 
-# Virtual environment
+# Virtual environments
 .venv/
 env/
 venv/
 
-# Distribution / packaging
-build/
-dist/
-*.egg-info/
-.eggs/
+# Data and results
+results/
 
-# IDE/editor specific
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# Logs and databases
-*.log
-*.sqlite3
-
-# Mac OS
-.DS_Store
-
-# Windows
-Thumbs.db
