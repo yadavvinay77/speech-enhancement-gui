@@ -1,6 +1,14 @@
 numpy
 scipy
+<<<<<<< HEAD
 librosa
 soundfile
 matplotlib
 tk
+=======
+scikit-learn
+soundfile
+pytest
+sounddevice
+pesq
+>>>>>>> 1dcc848 (Initial commit - speech enhancement GUI and modules)

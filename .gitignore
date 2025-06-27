@@ -1,24 +1,31 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-*.swp
-*.egg-info/
+*$py.class
 
 # Virtual environment
 .venv/
 env/
 venv/
 
-# Data and results (optional)
-data/
-results/
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
 
-# Large files to avoid pushing
-*.tar.bz2
-*.zip
+# IDE/editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# OS files
+# Logs and databases
+*.log
+*.sqlite3
+
+# Mac OS
 .DS_Store
+
+# Windows
 Thumbs.db

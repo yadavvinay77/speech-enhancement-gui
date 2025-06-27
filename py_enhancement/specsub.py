@@ -18,9 +18,14 @@ def spectral_subtraction(
     """
     frame_len = int(fs * frame_len_ms / 1000)
     frame_shift = int(fs * frame_shift_ms / 1000)
+<<<<<<< HEAD
     n_fft = 2 ** (frame_len - 1).bit_length()  # next power of 2
 
     # Frame the noisy signal
+=======
+    n_fft = 2 ** ((frame_len - 1).bit_length())  # next power of 2
+
+>>>>>>> 1dcc848 (Initial commit - speech enhancement GUI and modules)
     def enframe(signal, frame_len, frame_shift):
         num_frames = int(np.ceil((len(signal) - frame_len) / frame_shift)) + 1
         pad_len = (num_frames - 1) * frame_shift + frame_len
@@ -36,11 +41,15 @@ def spectral_subtraction(
     window = np.hamming(frame_len)
     frames_win = frames * window
 
+<<<<<<< HEAD
     # FFT
+=======
+>>>>>>> 1dcc848 (Initial commit - speech enhancement GUI and modules)
     spectrum = np.fft.rfft(frames_win, n=n_fft)
     mag = np.abs(spectrum)
     phase = np.angle(spectrum)
 
+<<<<<<< HEAD
     # Noise magnitude estimation from first 5 frames
     noise_mag = np.mean(mag[:5, :], axis=0)
 
@@ -55,6 +64,17 @@ def spectral_subtraction(
     enhanced_frames = np.fft.irfft(enhanced_spectrum, n=n_fft)[:, :frame_len]
 
     # Overlap-add
+=======
+    noise_mag = np.mean(mag[:5, :], axis=0)
+
+    enhanced_mag = mag - alpha * noise_mag
+    enhanced_mag = np.maximum(enhanced_mag, beta * noise_mag)
+
+    enhanced_spectrum = enhanced_mag * np.exp(1j * phase)
+
+    enhanced_frames = np.fft.irfft(enhanced_spectrum, n=n_fft)[:, :frame_len]
+
+>>>>>>> 1dcc848 (Initial commit - speech enhancement GUI and modules)
     enhanced_signal = np.zeros((frames.shape[0] - 1) * frame_shift + frame_len)
     window_sum = np.zeros_like(enhanced_signal)
 
@@ -63,7 +83,10 @@ def spectral_subtraction(
         enhanced_signal[start : start + frame_len] += enhanced_frames[i] * window
         window_sum[start : start + frame_len] += window**2
 
+<<<<<<< HEAD
     # Normalize to compensate window overlap
+=======
+>>>>>>> 1dcc848 (Initial commit - speech enhancement GUI and modules)
     nonzero = window_sum > 1e-6
     enhanced_signal[nonzero] /= window_sum[nonzero]
 

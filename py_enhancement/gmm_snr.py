@@ -15,7 +15,11 @@ def gmm_snr_classifier(
     """
     frame_len = int(fs * frame_len_ms / 1000)
     frame_shift = int(fs * frame_shift_ms / 1000)
+<<<<<<< HEAD
     n_fft = 2 ** (frame_len - 1).bit_length()
+=======
+    n_fft = 2 ** ((frame_len - 1).bit_length())
+>>>>>>> 1dcc848 (Initial commit - speech enhancement GUI and modules)
 
     f, t, Zxx = stft(
         noisy_signal,

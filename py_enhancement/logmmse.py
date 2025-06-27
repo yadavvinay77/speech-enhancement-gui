@@ -8,7 +8,11 @@ def logmmse(noisy_signal, fs, frame_len_ms=20, frame_shift_ms=10, alpha=0.98):
     """
     frame_len = int(fs * frame_len_ms / 1000)
     frame_shift = int(fs * frame_shift_ms / 1000)
+<<<<<<< HEAD
     n_fft = 2 ** (frame_len - 1).bit_length()
+=======
+    n_fft = 2 ** ((frame_len - 1).bit_length())
+>>>>>>> 1dcc848 (Initial commit - speech enhancement GUI and modules)
 
     def enframe(signal, frame_len, frame_shift):
         num_frames = int(np.ceil((len(signal) - frame_len) / frame_shift)) + 1
@@ -39,9 +43,14 @@ def logmmse(noisy_signal, fs, frame_len_ms=20, frame_shift_ms=10, alpha=0.98):
         gamma = (mag[i] ** 2) / (noise_mag**2)
         xi = alpha * xi_prev + (1 - alpha) * np.maximum(gamma - 1, 0)
         vk = xi * gamma / (1 + xi)
+<<<<<<< HEAD
         gain = (
             xi / (1 + xi) * np.exp(0.5 * np.exp1 * np.exp(-vk))
         )  # approx. gain factor
+=======
+        # FIXED: replaced np.exp1 with np.e
+        gain = (xi / (1 + xi)) * np.exp(0.5 * np.e * np.exp(-vk))
+>>>>>>> 1dcc848 (Initial commit - speech enhancement GUI and modules)
         enhanced_mag[i] = gain * mag[i]
         xi_prev = xi
 
