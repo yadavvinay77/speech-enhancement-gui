@@ -27,4 +27,5 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run tests (if any)
-        run: echo "Add your test commands here"
+        run: |
+          echo "Add your test commands here"
